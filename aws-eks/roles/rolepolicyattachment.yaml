@@ -1,0 +1,69 @@
+apiVersion: iam.aws.crossplane.io/v1beta1
+kind: RolePolicyAttachment
+metadata: # kpt-merge: /mec-new-eks-cluster-role-pa
+  name: mec-new-eks-cluster-role-pa
+  annotations:
+    internal.kpt.dev/upstream-identifier: 'iam.aws.crossplane.io|RolePolicyAttachment|default|mec-new-eks-cluster-role-pa'
+spec:
+  forProvider:
+    policyArn: arn:aws:iam::aws:policy/AmazonEKSClusterPolicy
+    roleNameRef:
+      name: mec-new-eks-cluster-role
+  providerConfigRef:
+    name: default
+---
+apiVersion: iam.aws.crossplane.io/v1beta1
+kind: RolePolicyAttachment
+metadata: # kpt-merge: /mec-new-eks-cluster-role-service-pa
+  name: mec-new-eks-cluster-role-service-pa
+  annotations:
+    internal.kpt.dev/upstream-identifier: 'iam.aws.crossplane.io|RolePolicyAttachment|default|mec-new-eks-cluster-role-service-pa'
+spec:
+  forProvider:
+    policyArn: arn:aws:iam::aws:policy/AmazonEKSServicePolicy
+    roleNameRef:
+      name: mec-new-eks-cluster-role
+  providerConfigRef:
+    name: default
+---
+apiVersion: iam.aws.crossplane.io/v1beta1
+kind: RolePolicyAttachment
+metadata: # kpt-merge: /mec-new-eks-cluster-ngrole-worker-pa
+  name: mec-new-eks-cluster-ngrole-worker-pa
+  annotations:
+    internal.kpt.dev/upstream-identifier: 'iam.aws.crossplane.io|RolePolicyAttachment|default|mec-new-eks-cluster-ngrole-worker-pa'
+spec:
+  forProvider:
+    policyArn: arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
+    roleNameRef:
+      name: mec-new-eks-cluster-ngrole
+  providerConfigRef:
+    name: default
+---
+apiVersion: iam.aws.crossplane.io/v1beta1
+kind: RolePolicyAttachment
+metadata: # kpt-merge: /mec-new-eks-cluster-ngrole-cni-pa
+  name: mec-new-eks-cluster-ngrole-cni-pa
+  annotations:
+    internal.kpt.dev/upstream-identifier: 'iam.aws.crossplane.io|RolePolicyAttachment|default|mec-new-eks-cluster-ngrole-cni-pa'
+spec:
+  forProvider:
+    policyArn: arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
+    roleNameRef:
+      name: mec-new-eks-cluster-ngrole
+  providerConfigRef:
+    name: default
+---
+apiVersion: iam.aws.crossplane.io/v1beta1
+kind: RolePolicyAttachment
+metadata: # kpt-merge: /mec-new-eks-cluster-ngrole-registry-pa
+  name: mec-new-eks-cluster-ngrole-registry-pa
+  annotations:
+    internal.kpt.dev/upstream-identifier: 'iam.aws.crossplane.io|RolePolicyAttachment|default|mec-new-eks-cluster-ngrole-registry-pa'
+spec:
+  forProvider:
+    policyArn: arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
+    roleNameRef:
+      name: mec-new-eks-cluster-ngrole
+  providerConfigRef:
+    name: default
