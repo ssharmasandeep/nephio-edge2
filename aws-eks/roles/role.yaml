@@ -1,0 +1,27 @@
+apiVersion: iam.aws.crossplane.io/v1beta1
+kind: Role
+metadata: # kpt-merge: /mec-new-eks-cluster-role
+  name: mec-new-eks-cluster-role
+  annotations:
+    internal.kpt.dev/upstream-identifier: 'iam.aws.crossplane.io|Role|default|mec-new-eks-cluster-role'
+spec:
+  forProvider:
+    assumeRolePolicyDocument: |
+      {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Effect": "Allow",
+                "Principal": {
+                    "Service": [
+                        "eks.amazonaws.com"
+                     ]
+                 },
+                 "Action": [
+                     "sts:AssumeRole"
+                 ]
+             }
+        ]
+      }
+  providerConfigRef:
+    name: default
