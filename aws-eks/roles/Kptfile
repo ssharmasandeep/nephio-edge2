@@ -4,6 +4,7 @@ metadata: # kpt-merge: /roles
   name: roles
   annotations:
     config.kubernetes.io/local-config: "true"
-    internal.kpt.dev/upstream-identifier: 'kpt.dev|Kptfile|default|roles'
+    internal.kpt.dev/upstream-identifier: kpt.dev|Kptfile|default|roles
 info:
   description: sample description
+status: {}
